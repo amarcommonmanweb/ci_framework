@@ -16,7 +16,7 @@ abstract class BaseDbClass
     protected static function insertRow($data)
     {
         $data['created_datetime'] = date('Y-m-d H:i:s');
-        $data['updated_dt_tm'] = $data['created_datetime'];
+        $data['updated_ddatetime'] = $data['created_datetime'];
         $data['created_userid'] = ($data['created_userid'])?$data['created_userid']: $this->session->userdata('account_id');
         $data['updated_userid'] = ($data['updated_userid'])?$data['updated_userid']: $this->session->userdata('account_id');
         $data['delete_flag'] = ($data['delete_flag'])?$data['delete_flag']:'0';
@@ -27,7 +27,7 @@ abstract class BaseDbClass
     protected static function _updateRowById($id, $data)
     {
         $data['updated_userid'] = $this->session->userdata('account_id');
-        $data['updated_dt_tm'] = date('Y-m-d H:i:s');
+        $data['updated_ddatetime'] = date('Y-m-d H:i:s');
         $this->db->where('id', $id);
         return $this->db->update(_getTableName(), $data); 
     }
@@ -35,7 +35,7 @@ abstract class BaseDbClass
     protected static function _updateRowByCondition($condn, $data)
     {
         $data['updated_userid'] = $this->session->userdata('account_id');
-        $data['updated_dt_tm'] = date('Y-m-d H:i:s');
+        $data['updated_ddatetime'] = date('Y-m-d H:i:s');
         return $this->db->update(_getTableName(), $data, $condn);
     }
     
@@ -43,7 +43,7 @@ abstract class BaseDbClass
     {
         foreach ($data as $key => $value) {
             $data[$key]['updated_userid'] = $this->session->userdata('account_id');
-            $data[$key]['updated_dt_tm'] = date('Y-m-d H:i:s');
+            $data[$key]['updated_ddatetime'] = date('Y-m-d H:i:s');
         }
         return $this->db->update_batch(_getTableName(), $data, $attr); 
     }
@@ -54,7 +54,7 @@ abstract class BaseDbClass
             'delete_flag' => '0'
         );
         $data['updated_userid'] = $this->session->userdata('account_id');
-        $data['updated_dt_tm'] = date('Y-m-d H:i:s');
+        $data['updated_ddatetime'] = date('Y-m-d H:i:s');
         
         $this->db->where('id', $id);        
         return $this->db->update(_getTableName(), $data);
@@ -67,7 +67,7 @@ abstract class BaseDbClass
             'delete_flag' => '0'
         );
         $data['updated_userid'] = $this->session->userdata('account_id');
-        $data['updated_dt_tm'] = date('Y-m-d H:i:s');
+        $data['updated_ddatetime'] = date('Y-m-d H:i:s');
         
         return $this->db->update(_getTableName(), $data, $condn);
         //return $this->db->delete(_getTableName(), $condn); 
