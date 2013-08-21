@@ -109,3 +109,12 @@ to render a php view file and use the whole file as a html string ... use the fo
         $msg = $this->load->view('emails/phpviewfilename','',true);	
 	$this->email->message($msg);
         here ... it is been used to send the email of that format
+        
+14.
+Except reading/select all other requests to database should go through the baseDbClass protected methods
+
+15.
+"created_datetime", "updated_datetime", "created_userid", "updated_userid", "delete_flag" are the mandatory fields in all the tables in the db.
+all these will be updated through the base class, by attaching extra modules to the already existing array columns
+
+16.
