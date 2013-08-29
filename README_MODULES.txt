@@ -28,6 +28,7 @@ and copy the part
 
 5.
 The '/js/third_party/' folder consists of the js files from outside, distrbuted for free... like the md5.js
+and each module has a file in the js folder <module name>.js 
 
 6.
 three main divisions in the header scripts and css
